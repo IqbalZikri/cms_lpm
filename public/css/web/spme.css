@@ -1,0 +1,225 @@
+.ph-stat-row{display:flex;gap:16px;flex-wrap:wrap}
+.ph-stat-pill{background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.12);border-radius:12px;padding:12px 18px;display:flex;align-items:center;gap:10px;transition:all .2s}
+.ph-stat-pill:hover{background:rgba(255,255,255,.14);border-color:rgba(235,118,19,.35)}
+.ph-stat-num{font-family:'Playfair Display',serif;font-size:22px;font-weight:800;color:var(--primary-light);line-height:1}
+.ph-stat-lbl{font-size:11px;color:rgba(255,255,255,.6);margin-top:1px}
+
+/* ══════════════════════════
+   TENTANG SPME
+══════════════════════════ */
+.tentang-section{background:#fff;padding:80px 0}
+.tentang-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:36px}
+.tg-card{background:var(--neutral-50);border-radius:18px;padding:28px;border:1.5px solid var(--neutral-200);transition:all .3s}
+.tg-card:hover{border-color:var(--secondary);transform:translateY(-3px);box-shadow:0 10px 32px rgba(1,61,33,.08)}
+.tg-icon{width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,var(--secondary),var(--secondary-light));display:grid;place-items:center;font-size:22px;margin-bottom:16px}
+.tg-title{font-size:16px;font-weight:800;color:var(--neutral-800);margin-bottom:8px}
+.tg-desc{font-size:13.5px;color:var(--neutral-600);line-height:1.75}
+
+/* Alur SPME */
+.alur-wrap{background:var(--neutral-50);border-radius:20px;border:1.5px solid var(--neutral-200);padding:36px;margin-top:36px}
+.alur-title{font-size:14px;font-weight:800;color:var(--secondary);margin-bottom:24px;display:flex;align-items:center;gap:8px}
+.alur-title::before{content:'';display:block;width:24px;height:3px;background:var(--primary);border-radius:2px}
+.alur-steps{display:flex;gap:0;align-items:stretch;position:relative}
+.alur-step{flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;position:relative;padding:0 8px}
+.alur-step:not(:last-child)::after{content:'→';position:absolute;right:-12px;top:22px;font-size:18px;color:var(--neutral-300);z-index:1}
+.as-circle{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;font-size:18px;margin:0 auto 12px;border:3px solid #fff;box-shadow:0 4px 16px rgba(0,0,0,.12);transition:transform .3s}
+.alur-step:hover .as-circle{transform:scale(1.12)}
+.as-label{font-size:12.5px;font-weight:700;color:var(--neutral-800);margin-bottom:4px}
+.as-desc{font-size:11px;color:var(--neutral-500);line-height:1.5}
+
+/* ══════════════════════════
+   PORTAL CARDS (utama)
+══════════════════════════ */
+.portal-section{background:var(--neutral-50);padding:80px 0}
+.portal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+
+.portal-card{
+    background:#fff;
+    border-radius:20px;
+    border:1.5px solid var(--neutral-200);
+    overflow:hidden;
+    transition:all .35s;
+    display:flex;
+    flex-direction:column;
+    position:relative;
+}
+.portal-card:hover{
+    border-color:transparent;
+    transform:translateY(-6px);
+    box-shadow:0 20px 56px rgba(0,0,0,.1);
+}
+/* Strip warna atas setiap card */
+.portal-card::before{
+    content:'';
+    display:block;
+    height:5px;
+    width:100%;
+    transition:height .3s;
+}
+.portal-card:hover::before{height:6px}
+
+/* Warna unik tiap lembaga */
+.card-banpt::before    { background:linear-gradient(to right,#1a3a6a,#2d5fa8); }
+.card-lamptkes::before { background:linear-gradient(to right,#006b3f,#00a661); }
+.card-lamemba::before  { background:linear-gradient(to right,#b45309,#d97706); }
+.card-laminfokom::before { background:linear-gradient(to right,#0a4a8a,#1a7abf); }
+.card-lamdik::before   { background:linear-gradient(to right,#6b21a8,#9333ea); }
+.card-spmikemdikbud::before { background:linear-gradient(to right,#013d21,#1a5a37); }
+.card-simonev::before  { background:linear-gradient(to right,#b91c1c,#ef4444); }
+
+.pc-body{padding:28px;flex:1;display:flex;flex-direction:column}
+.pc-logo-wrap{
+    width:56px;height:56px;
+    border-radius:14px;
+    display:grid;place-items:center;
+    font-size:24px;
+    margin-bottom:18px;
+    flex-shrink:0;
+    transition:transform .3s;
+}
+.portal-card:hover .pc-logo-wrap{transform:scale(1.08) rotate(-2deg)}
+
+.card-banpt .pc-logo-wrap    { background:rgba(26,58,106,.1); }
+.card-lamptkes .pc-logo-wrap { background:rgba(0,107,63,.1); }
+.card-lamemba .pc-logo-wrap  { background:rgba(180,83,9,.1); }
+.card-laminfokom .pc-logo-wrap { background:rgba(10,74,138,.1); }
+.card-lamdik .pc-logo-wrap   { background:rgba(107,33,168,.1); }
+.card-spmikemdikbud .pc-logo-wrap { background:rgba(1,61,33,.1); }
+.card-simonev .pc-logo-wrap  { background:rgba(185,28,28,.1); }
+
+.pc-name{font-size:17px;font-weight:800;color:var(--neutral-900);margin-bottom:4px;line-height:1.25}
+.pc-full{font-size:12px;font-weight:500;color:var(--neutral-400);margin-bottom:12px;line-height:1.4}
+.pc-desc{font-size:13.5px;color:var(--neutral-600);line-height:1.72;flex:1;margin-bottom:20px}
+.pc-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
+.pc-tag{font-size:10.5px;font-weight:700;padding:3px 10px;border-radius:999px}
+
+.card-banpt    .pc-tag { background:rgba(26,58,106,.09);  color:#1a3a6a; }
+.card-lamptkes .pc-tag { background:rgba(0,107,63,.09);   color:#006b3f; }
+.card-lamemba  .pc-tag { background:rgba(180,83,9,.1);    color:#b45309; }
+.card-laminfokom .pc-tag{ background:rgba(10,74,138,.1);  color:#0a4a8a; }
+.card-lamdik   .pc-tag { background:rgba(107,33,168,.1);  color:#6b21a8; }
+.card-spmikemdikbud .pc-tag{ background:rgba(1,61,33,.08);color:var(--secondary); }
+.card-simonev  .pc-tag { background:rgba(185,28,28,.08);  color:#b91c1c; }
+
+.pc-footer{
+    margin-top:auto;
+    padding:16px 20px;
+    border-top:1px solid var(--neutral-100);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+}
+.pc-url{font-size:11.5px;color:var(--neutral-400);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:180px}
+.pc-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    padding:8px 16px;
+    border-radius:8px;
+    font-size:12.5px;
+    font-weight:700;
+    text-decoration:none;
+    transition:all .2s;
+    white-space:nowrap;
+    flex-shrink:0;
+}
+.card-banpt    .pc-btn { background:#1a3a6a;color:#fff; }
+.card-banpt    .pc-btn:hover { background:#2d5fa8; }
+.card-lamptkes .pc-btn { background:#006b3f;color:#fff; }
+.card-lamptkes .pc-btn:hover { background:#00a661; }
+.card-lamemba  .pc-btn { background:#b45309;color:#fff; }
+.card-lamemba  .pc-btn:hover { background:#d97706; }
+.card-laminfokom .pc-btn { background:#0a4a8a;color:#fff; }
+.card-laminfokom .pc-btn:hover { background:#1a7abf; }
+.card-lamdik   .pc-btn { background:#6b21a8;color:#fff; }
+.card-lamdik   .pc-btn:hover { background:#9333ea; }
+.card-spmikemdikbud .pc-btn { background:var(--secondary);color:#fff; }
+.card-spmikemdikbud .pc-btn:hover { background:var(--secondary-light); }
+.card-simonev  .pc-btn { background:#b91c1c;color:#fff; }
+.card-simonev  .pc-btn:hover { background:#ef4444; }
+
+/* ══════════════════════════
+   QUICK ACCESS (tabel)
+══════════════════════════ */
+.quick-section{background:#fff;padding:72px 0}
+.quick-table-wrap{overflow-x:auto;margin-top:40px}
+.quick-table{width:100%;border-collapse:collapse}
+.quick-table thead tr{background:linear-gradient(135deg,var(--secondary),var(--secondary-light))}
+.quick-table th{padding:14px 18px;text-align:left;font-size:12.5px;font-weight:700;color:#fff;white-space:nowrap}
+.quick-table td{padding:14px 18px;border-bottom:1px solid var(--neutral-100);font-size:13.5px;color:var(--neutral-700);vertical-align:middle}
+.quick-table tbody tr{transition:background .15s}
+.quick-table tbody tr:hover td{background:rgba(235,118,19,.03)}
+.quick-table tbody tr:last-child td{border-bottom:none}
+
+/* Lembaga chip di tabel */
+.lembaga-chip{display:inline-flex;align-items:center;gap:8px}
+.lc-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.lc-name{font-weight:700;color:var(--neutral-800)}
+
+/* Status badge */
+.status-up{display:inline-flex;align-items:center;gap:5px;background:rgba(16,185,129,.1);color:var(--success);font-size:11.5px;font-weight:700;padding:4px 10px;border-radius:999px}
+.status-up::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--success)}
+
+/* Kategori badge */
+.cat-badge{display:inline-block;font-size:11px;font-weight:700;padding:3px 10px;border-radius:999px}
+
+.qt-link{display:inline-flex;align-items:center;gap:5px;padding:7px 14px;border-radius:8px;font-size:12.5px;font-weight:700;text-decoration:none;transition:all .2s}
+.qt-link:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,.1)}
+
+/* ══════════════════════════
+   INFO PANELS
+══════════════════════════ */
+.info-section{background:var(--neutral-50);padding:72px 0}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:48px}
+.info-panel{background:#fff;border-radius:18px;border:1.5px solid var(--neutral-200);padding:28px;transition:all .3s}
+.info-panel:hover{border-color:var(--secondary);box-shadow:0 8px 28px rgba(1,61,33,.07)}
+.ip-header{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.ip-icon{width:44px;height:44px;background:linear-gradient(135deg,var(--secondary),var(--secondary-light));border-radius:12px;display:grid;place-items:center;font-size:18px;flex-shrink:0}
+.ip-title{font-size:16px;font-weight:800;color:var(--neutral-800)}
+.ip-sub{font-size:12px;color:var(--neutral-400);margin-top:2px}
+.ip-list{display:flex;flex-direction:column;gap:10px}
+.ip-item{display:flex;gap:10px;align-items:flex-start;padding:12px 14px;background:var(--neutral-50);border-radius:10px;border:1px solid var(--neutral-100);transition:border .2s}
+.ip-item:hover{border-color:var(--primary)}
+.ip-item-icon{font-size:14px;flex-shrink:0;margin-top:1px}
+.ip-item-text{font-size:13px;color:var(--neutral-700);line-height:1.6}
+.ip-item-text strong{color:var(--secondary)}
+
+/* Prodi Stats */
+.prodi-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px}
+.ps-item{background:var(--neutral-50);border-radius:10px;padding:14px;text-align:center;border:1px solid var(--neutral-200)}
+.ps-num{font-family:'Playfair Display',serif;font-size:28px;font-weight:800;color:var(--secondary);line-height:1}
+.ps-lbl{font-size:11px;color:var(--neutral-500);margin-top:4px}
+
+/* ══════════════════════════
+   CTA
+══════════════════════════ */
+.cta-strip{background:linear-gradient(135deg,var(--secondary) 0%,var(--secondary-light) 100%);padding:56px 0;position:relative;overflow:hidden}
+.cta-strip::before{content:'';position:absolute;top:-60px;right:-60px;width:240px;height:240px;border-radius:50%;background:rgba(235,118,19,.08)}
+.cta-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;position:relative;z-index:1}
+.cta-text-title{font-family:'Playfair Display',serif;font-size:clamp(22px,3vw,30px);font-weight:800;color:#fff;margin-bottom:6px}
+.cta-text-sub{font-size:14px;color:rgba(255,255,255,.75);max-width:480px;line-height:1.6}
+.cta-btns{display:flex;gap:12px;flex-wrap:wrap;flex-shrink:0}
+.btn-orange{background:var(--primary);color:#fff}
+.btn-orange:hover{background:var(--primary-dark);transform:translateY(-2px)}
+.btn-white-out{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.4)}
+.btn-white-out:hover{border-color:#fff;background:rgba(255,255,255,.1)}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+    .ph-content{grid-template-columns:1fr}
+    .ph-right{display:none}
+    .portal-grid{grid-template-columns:repeat(2,1fr)}
+    .info-grid{grid-template-columns:1fr}
+    .footer-main{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+    nav{display:none}.hamburger{display:flex}
+    .portal-grid{grid-template-columns:1fr}
+    .tentang-grid{grid-template-columns:1fr}
+    .alur-steps{flex-direction:column;gap:20px}
+    .alur-step:not(:last-child)::after{display:none}
+    .prodi-stats{grid-template-columns:repeat(3,1fr)}
+    .footer-main{grid-template-columns:1fr;gap:32px}
+    .cta-inner{flex-direction:column;text-align:center}
+}

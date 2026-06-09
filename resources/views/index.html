@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tentang Kami — LPM UMI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+    --primary: #eb7613;
+    --primary-dark: #c09e5e;
+    --primary-light: #f5a745;
+    --secondary: #013d21;
+    --secondary-light: #1a5a37;
+    --danger: #ef4444;
+    --warning: #f59e0b;
+    --success: #10b981;
+    --neutral-50: #fafbfc;
+    --neutral-100: #f3f4f6;
+    --neutral-200: #e5e7eb;
+    --neutral-300: #d1d5db;
+    --neutral-400: #9ca3af;
+    --neutral-500: #6b7280;
+    --neutral-600: #4b5563;
+    --neutral-700: #374151;
+    --neutral-800: #1f2937;
+    --neutral-900: #111827;
+    --radius: 12px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--neutral-50);color:var(--neutral-800);overflow-x:hidden}
+
+/* ── TOPBAR ── */
+.topbar{background:var(--secondary);padding:8px 0;font-size:12.5px;color:rgba(255,255,255,.75)}
+.topbar-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.topbar-links{display:flex;gap:16px}
+.topbar-links a{color:rgba(255,255,255,.7);text-decoration:none;transition:color .2s}
+.topbar-links a:hover{color:var(--primary-light)}
+.topbar-social{display:flex;gap:10px}
+.topbar-social a{display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.1);color:#fff;text-decoration:none;font-size:11px;transition:background .2s}
+.topbar-social a:hover{background:var(--primary)}
+
+/* ── NAVBAR ── */
+.navbar{background:#fff;box-shadow:0 2px 20px rgba(0,0,0,.07);position:sticky;top:0;z-index:100}
+.navbar-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:70px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand-icon{width:44px;height:44px;background:linear-gradient(135deg,var(--secondary),var(--secondary-light));border-radius:10px;display:grid;place-items:center;color:#fff;font-size:18px;font-family:'Playfair Display',serif;font-weight:800;letter-spacing:-1px}
+.brand-text{line-height:1.2}
+.brand-name{font-size:15px;font-weight:700;color:var(--secondary);letter-spacing:-.2px}
+.brand-sub{font-size:10.5px;color:var(--neutral-500);font-weight:500}
+nav{display:flex;align-items:center;gap:4px}
+nav a,.nav-dropdown>span{color:var(--neutral-700);text-decoration:none;font-size:13.5px;font-weight:600;padding:8px 12px;border-radius:8px;transition:all .2s;cursor:pointer;white-space:nowrap}
+nav a:hover,.nav-dropdown>span:hover{color:var(--primary);background:rgba(235,118,19,.07)}
+nav a.active{color:var(--primary)}
+.nav-dropdown{position:relative}
+.nav-dropdown>span{display:flex;align-items:center;gap:4px}
+.nav-dropdown>span::after{content:'▾';font-size:10px;opacity:.6}
+.dropdown-menu{display:none;position:absolute;top:100%;left:0;background:#fff;border:1px solid var(--neutral-200);border-radius:var(--radius);min-width:210px;box-shadow:0 8px 32px rgba(0,0,0,.12);overflow:hidden;padding-top:8px;margin-top:-2px}
+.nav-dropdown.open .dropdown-menu{display:block;animation:fadeDown .18s ease}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+.dropdown-menu a{display:block;padding:10px 16px;font-size:13px;color:var(--neutral-700);text-decoration:none;font-weight:500;transition:all .15s}
+.dropdown-menu a:hover{background:var(--neutral-50);color:var(--primary);padding-left:20px}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hamburger span{width:24px;height:2.5px;background:var(--neutral-700);border-radius:2px;transition:all .3s}
+.hamburger.active span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.hamburger.active span:nth-child(2){opacity:0;transform:scaleX(0)}
+.hamburger.active span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+.mobile-nav{display:none;flex-direction:column;background:#fff;border-top:2px solid var(--neutral-100);box-shadow:0 8px 24px rgba(0,0,0,.1);max-height:0;overflow:hidden;transition:max-height .35s ease;position:sticky;top:70px;z-index:99}
+.mobile-nav.open{max-height:80vh;overflow-y:auto}
+.mobile-nav a{display:block;padding:13px 24px;font-size:14px;font-weight:600;color:var(--neutral-700);text-decoration:none;border-bottom:1px solid var(--neutral-100);transition:all .15s}
+.mobile-nav a:hover{color:var(--primary);background:rgba(235,118,19,.05);padding-left:30px}
+.mobile-group-title{padding:10px 24px 6px;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--neutral-400);background:var(--neutral-50)}
+.mobile-group a{padding-left:32px!important;font-weight:500!important;font-size:13.5px!important}
+@media(max-width:768px){.mobile-nav{display:flex}}
+
+/* ── COMMON ── */
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+section{padding:80px 0}
+.section-label{display:inline-flex;align-items:center;gap:8px;background:rgba(235,118,19,.1);color:var(--primary);font-size:11.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:5px 14px;border-radius:999px;margin-bottom:16px}
+.section-label::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--primary)}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,38px);font-weight:700;line-height:1.2;color:var(--neutral-900);margin-bottom:16px}
+.section-title em{color:var(--primary);font-style:normal}
+.section-desc{font-size:15px;line-height:1.75;color:var(--neutral-600);max-width:580px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:var(--radius);font-size:13.5px;font-weight:700;text-decoration:none;cursor:pointer;transition:all .2s;border:none;font-family:'Plus Jakarta Sans',sans-serif}
+.btn-primary{background:var(--primary);color:#fff}
+.btn-primary:hover{background:var(--primary-dark);transform:translateY(-1px);box-shadow:0 4px 16px rgba(235,118,19,.4)}
+.btn-green{background:var(--secondary);color:#fff}
+.btn-green:hover{background:var(--secondary-light);transform:translateY(-1px)}
+.btn-ghost{background:transparent;color:var(--secondary);border:2px solid var(--secondary)}
+.btn-ghost:hover{background:var(--secondary);color:#fff}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* ── HERO TENTANG ── */
+.hero-tentang {
+    position: relative;
+    background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-light) 60%, #0a4a28 100%);
+    overflow: hidden;
+    padding: 80px 0 0;
+}
+.hero-tentang::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: rgba(235,118,19,.07);
+}
+.hero-tentang::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 5%;
+    width: 250px; height: 250px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.04);
+}
+.hero-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: end;
+}
+.hero-left { padding-bottom: 64px; }
+.breadcrumb{display:flex;align-items:center;gap:8px;font-size:12.5px;color:rgba(255,255,255,.6);margin-bottom:20px}
+.breadcrumb a{color:rgba(255,255,255,.6);text-decoration:none;transition:color .2s}
+.breadcrumb a:hover{color:var(--primary-light)}
+.breadcrumb span{color:rgba(255,255,255,.3)}
+.hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(235,118,19,.2);
+    border: 1px solid rgba(235,118,19,.4);
+    color: var(--primary-light);
+    font-size: 11.5px;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 999px;
+    margin-bottom: 20px;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+}
+.hero-tag::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--primary-light);
+    animation: blink 2s infinite;
+}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.hero-h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(34px, 4.5vw, 56px);
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.12;
+    margin-bottom: 20px;
+}
+.hero-h1 em { color: var(--primary-light); font-style: normal; }
+.hero-p {
+    font-size: 15.5px;
+    color: rgba(255,255,255,.78);
+    line-height: 1.75;
+    max-width: 480px;
+    margin-bottom: 32px;
+}
+.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn-outline-white {
+    background: transparent;
+    color: #fff;
+    border: 2px solid rgba(255,255,255,.45);
+    padding: 12px 24px;
+    border-radius: var(--radius);
+    font-size: 13.5px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all .2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+.btn-outline-white:hover { border-color: #fff; background: rgba(255,255,255,.1); }
+.hero-right {
+    position: relative;
+    height: 420px;
+    align-self: end;
+}
+.hero-img-main {
+    position: absolute;
+    top: 0; left: 0;
+    width: 78%;
+    height: 84%;
+    border-radius: 20px 20px 0 0;
+    background: linear-gradient(160deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+    border: 1px solid rgba(255,255,255,.12);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 80px;
+    color: rgba(255,255,255,.12);
+}
+.hero-img-main img { width:100%; height:100%; object-fit:cover; opacity:.65; }
+.hero-img-accent {
+    position: absolute;
+    bottom: 0; right: 0;
+    width: 54%;
+    height: 52%;
+    border-radius: 16px 16px 0 0;
+    background: linear-gradient(160deg, rgba(235,118,19,.15), rgba(235,118,19,.05));
+    border: 1px solid rgba(235,118,19,.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    color: rgba(235,118,19,.25);
+    overflow: hidden;
+}
+.hero-img-accent img { width:100%; height:100%; object-fit:cover; opacity:.6; }
+.hero-badge-float {
+    position: absolute;
+    top: 40%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    background: var(--secondary);
+    border: 3px solid #fff;
+    border-radius: 18px;
+    padding: 16px 20px;
+    text-align: center;
+    box-shadow: 0 12px 40px rgba(0,0,0,.35);
+    z-index: 5;
+}
+.hbf-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--primary-light);
+    line-height: 1;
+}
+.hbf-lbl { font-size: 10px; font-weight: 700; color: rgba(255,255,255,.75); margin-top: 4px; letter-spacing: .3px; }
+
+/* HERO BOTTOM WAVE */
+.hero-wave {
+    display: block;
+    width: 100%;
+    height: 60px;
+    margin-top: 0;
+}
+
+/* ── STAT STRIP ── */
+.stat-strip {
+    background: #fff;
+    border-bottom: 1px solid var(--neutral-200);
+    padding: 0;
+}
+.stat-strip-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+}
+.ss-item {
+    padding: 28px 24px;
+    text-align: center;
+    border-right: 1px solid var(--neutral-200);
+    transition: background .2s;
+}
+.ss-item:last-child { border-right: none; }
+.ss-item:hover { background: var(--neutral-50); }
+.ss-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    font-weight: 800;
+    color: var(--secondary);
+    line-height: 1;
+}
+.ss-num span { color: var(--primary); }
+.ss-lbl { font-size: 13px; color: var(--neutral-500); margin-top: 6px; font-weight: 600; }
+.ss-sub { font-size: 11px; color: var(--neutral-400); margin-top: 3px; }
+
+/* ── ABOUT INTRO ── */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 72px;
+    align-items: center;
+}
+.about-images {
+    position: relative;
+    height: 440px;
+}
+.img-main {
+    position: absolute;
+    top: 0; left: 0;
+    width: 74%;
+    height: 76%;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0,0,0,.15);
+    background: linear-gradient(135deg,var(--secondary),var(--secondary-light));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 64px; color: rgba(255,255,255,.12);
+    overflow: hidden;
+}
+.img-main img { width:100%;height:100%;object-fit:cover; }
+.img-accent {
+    position: absolute;
+    bottom: 0; right: 0;
+    width: 56%;
+    height: 56%;
+    object-fit: cover;
+    border-radius: 16px;
+    border: 4px solid #fff;
+    box-shadow: 0 12px 40px rgba(0,0,0,.15);
+    background: linear-gradient(135deg,var(--primary-dark),var(--primary));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 40px; color: rgba(255,255,255,.15);
+    overflow: hidden;
+}
+.img-accent img { width:100%;height:100%;object-fit:cover; }
+.img-badge {
+    position: absolute;
+    top: 50%; left: 60%;
+    transform: translate(-50%,-50%);
+    background: var(--secondary);
+    color: #fff;
+    padding: 14px 18px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 8px 30px rgba(1,61,33,.35);
+    border: 3px solid #fff;
+    z-index: 5;
+}
+.img-badge-num { font-family:'Playfair Display',serif; font-size:28px; font-weight:800; color:var(--primary-light); line-height:1; }
+.img-badge-label { font-size:10px; font-weight:600; opacity:.8; margin-top:4px; }
+
+.pillars { display:flex; flex-direction:column; gap:16px; margin-top:28px; }
+.pillar { display:flex; gap:16px; padding:18px 20px; border-radius:var(--radius); border:1.5px solid var(--neutral-200); transition:all .25s; }
+.pillar:hover { border-color:var(--primary); background:rgba(235,118,19,.04); transform:translateX(4px); }
+.pillar-icon { width:44px;height:44px; background:linear-gradient(135deg,var(--secondary),var(--secondary-light)); border-radius:10px; display:grid; place-items:center; font-size:18px; flex-shrink:0; }
+.pillar-title { font-size:14px; font-weight:700; color:var(--neutral-800); margin-bottom:4px; }
+.pillar-desc { font-size:12.5px; color:var(--neutral-500); line-height:1.6; }
+
+/* ── VISI MISI ── */
+.vm-section { background: linear-gradient(170deg, var(--secondary) 0%, var(--secondary-light) 100%); position: relative; overflow: hidden; }
+.vm-section::before { content:''; position:absolute; top:-80px;right:-80px; width:360px;height:360px; border-radius:50%; background:rgba(235,118,19,.07); }
+.vm-section::after { content:''; position:absolute; bottom:-60px;left:-40px; width:280px;height:280px; border-radius:50%; background:rgba(255,255,255,.04); }
+.vm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; position: relative; z-index: 1; }
+.vm-box { border-radius: 20px; padding: 40px; }
+.vm-visi { background: rgba(255,255,255,.07); border: 1.5px solid rgba(255,255,255,.15); }
+.vm-misi { background: rgba(255,255,255,.95); }
+.vm-icon { font-size: 32px; margin-bottom: 20px; }
+.vm-label { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 14px; }
+.vm-visi .vm-label { color: var(--primary-light); }
+.vm-misi .vm-label { color: var(--primary); }
+.vm-title { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 800; line-height: 1.4; margin-bottom: 20px; }
+.vm-visi .vm-title { color: #fff; }
+.vm-misi .vm-title { color: var(--neutral-800); }
+.vm-visi .vm-desc { font-size: 14px; color: rgba(255,255,255,.75); line-height: 1.8; }
+.vm-misi-list { display: flex; flex-direction: column; gap: 14px; }
+.vm-misi-item { display: flex; gap: 12px; align-items: flex-start; }
+.vm-num { width: 26px; height: 26px; background: rgba(235,118,19,.12); color: var(--primary); border-radius: 50%; display: grid; place-items: center; font-size: 11.5px; font-weight: 800; flex-shrink: 0; margin-top: 1px; }
+.vm-text { font-size: 13.5px; color: var(--neutral-600); line-height: 1.65; }
+.vm-divider { width: 48px; height: 3px; background: var(--primary-light); border-radius: 2px; margin-top: 24px; }
+
+/* ── NILAI-NILAI ── */
+.nilai-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 48px; }
+.nilai-card {
+    background: #fff;
+    border-radius: 18px;
+    padding: 32px 28px;
+    border: 1.5px solid var(--neutral-200);
+    transition: all .35s;
+    position: relative;
+    overflow: hidden;
+}
+.nilai-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(to right, var(--secondary), var(--primary));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .35s;
+}
+.nilai-card:hover { border-color: transparent; transform: translateY(-6px); box-shadow: 0 16px 48px rgba(0,0,0,.1); }
+.nilai-card:hover::before { transform: scaleX(1); }
+.nilai-icon-wrap {
+    width: 60px; height: 60px;
+    background: linear-gradient(135deg, var(--secondary), var(--secondary-light));
+    border-radius: 16px;
+    display: grid;
+    place-items: center;
+    font-size: 26px;
+    margin-bottom: 20px;
+    transition: transform .3s;
+}
+.nilai-card:hover .nilai-icon-wrap { transform: scale(1.1) rotate(-3deg); }
+.nilai-title { font-size: 16px; font-weight: 700; color: var(--neutral-800); margin-bottom: 10px; }
+.nilai-desc { font-size: 13.5px; color: var(--neutral-500); line-height: 1.72; }
+
+/* ── SEJARAH TIMELINE ── */
+.sejarah-grid { display: grid; grid-template-columns: 1fr 80px 1fr; gap: 0; margin-top: 48px; }
+.tl-left, .tl-right { display: flex; flex-direction: column; gap: 0; }
+.tl-center { display: flex; flex-direction: column; align-items: center; }
+.tl-line { flex: 1; width: 2px; background: linear-gradient(to bottom, var(--primary), var(--secondary)); border-radius: 2px; }
+.tl-start-dot { width: 18px; height: 18px; border-radius: 50%; background: var(--primary); border: 3px solid #fff; box-shadow: 0 0 0 3px var(--primary); margin: 4px 0; flex-shrink: 0; }
+.tl-end-dot { width: 14px; height: 14px; border-radius: 50%; background: var(--secondary); border: 3px solid #fff; box-shadow: 0 0 0 3px var(--secondary); margin: 4px 0; flex-shrink: 0; }
+.tl-spacer { flex: 1; }
+
+.tl-event {
+    padding: 0 0 40px;
+    position: relative;
+}
+.tl-event-right {
+    padding: 0 0 40px;
+    text-align: right;
+}
+.tl-event-card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 20px 22px;
+    border: 1.5px solid var(--neutral-200);
+    transition: all .25s;
+    cursor: default;
+}
+.tl-event-card:hover { border-color: var(--primary); box-shadow: 0 6px 24px rgba(235,118,19,.1); }
+.tl-year-badge {
+    display: inline-block;
+    background: var(--primary);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 800;
+    padding: 3px 10px;
+    border-radius: 999px;
+    margin-bottom: 8px;
+    letter-spacing: .5px;
+}
+.tl-event-title { font-size: 14.5px; font-weight: 700; color: var(--neutral-800); margin-bottom: 6px; }
+.tl-event-desc { font-size: 13px; color: var(--neutral-500); line-height: 1.65; }
+.tl-dot-center {
+    width: 16px; height: 16px;
+    border-radius: 50%;
+    background: var(--secondary);
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 3px rgba(1,61,33,.3);
+    flex-shrink: 0;
+    margin: 18px 0;
+}
+.tl-dot-center.primary {
+    background: var(--primary);
+    box-shadow: 0 0 0 3px rgba(235,118,19,.3);
+}
+
+/* ── TUGAS & FUNGSI ── */
+.tf-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 20px; }
+.tf-card { background: #fff; border-radius: 16px; padding: 26px; border: 1.5px solid var(--neutral-200); display: flex; gap: 18px; transition: all .25s; }
+.tf-card:hover { border-color: var(--secondary); background: rgba(1,61,33,.02); transform: translateX(4px); }
+.tf-icon { width: 48px; height: 48px; background: linear-gradient(135deg, var(--secondary), var(--secondary-light)); border-radius: 12px; display: grid; place-items: center; font-size: 20px; flex-shrink: 0; }
+.tf-title { font-size: 14.5px; font-weight: 700; color: var(--neutral-800); margin-bottom: 6px; }
+.tf-desc { font-size: 13px; color: var(--neutral-500); line-height: 1.65; }
+
+/* ── PIMPINAN ── */
+.pimpinan-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; margin-top: 48px; }
+.pimpinan-card {
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1.5px solid var(--neutral-200);
+    transition: all .35s;
+    text-align: center;
+}
+.pimpinan-card:hover { border-color: var(--secondary); transform: translateY(-6px); box-shadow: 0 16px 48px rgba(1,61,33,.12); }
+.pimpinan-photo {
+    height: 200px;
+    background: linear-gradient(135deg, var(--secondary), var(--secondary-light));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 52px;
+    font-weight: 800;
+    color: rgba(255,255,255,.25);
+    position: relative;
+    overflow: hidden;
+}
+.pimpinan-photo img { width:100%;height:100%;object-fit:cover;object-position:top; }
+.pimpinan-badge {
+    position: absolute;
+    bottom: 12px; left: 50%; transform: translateX(-50%);
+    background: var(--primary);
+    color: #fff;
+    font-size: 10.5px;
+    font-weight: 700;
+    padding: 4px 14px;
+    border-radius: 999px;
+    white-space: nowrap;
+    letter-spacing: .3px;
+}
+.pimpinan-body { padding: 24px 20px; }
+.pimpinan-name { font-size: 15px; font-weight: 800; color: var(--neutral-800); line-height: 1.3; margin-bottom: 5px; }
+.pimpinan-role { font-size: 12.5px; color: var(--primary); font-weight: 700; margin-bottom: 10px; }
+.pimpinan-nidn { font-size: 12px; color: var(--neutral-400); }
+.pimpinan-social { display: flex; justify-content: center; gap: 8px; margin-top: 14px; }
+.ps-link { width: 32px; height: 32px; border-radius: 8px; background: var(--neutral-100); display: grid; place-items: center; font-size: 13px; color: var(--neutral-500); text-decoration: none; transition: all .2s; border: 1px solid var(--neutral-200); }
+.ps-link:hover { background: var(--secondary); color: #fff; border-color: var(--secondary); }
+
+/* ── PARTNER/MITRA ── */
+.mitra-strip {
+    background: var(--secondary);
+    padding: 48px 0;
+}
+.mitra-title {
+    text-align: center;
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.45);
+    margin-bottom: 32px;
+}
+.mitra-logos {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.mitra-badge {
+    background: rgba(255,255,255,.08);
+    border: 1.5px solid rgba(255,255,255,.15);
+    border-radius: 10px;
+    padding: 12px 22px;
+    font-size: 13.5px;
+    font-weight: 800;
+    color: rgba(255,255,255,.65);
+    letter-spacing: .5px;
+    transition: all .2s;
+    cursor: default;
+}
+.mitra-badge:hover { background: rgba(235,118,19,.2); border-color: var(--primary); color: var(--primary-light); transform: translateY(-2px); }
+
+/* ── CTA ── */
+.cta-section {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    padding: 64px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.cta-section::before { content:''; position:absolute; top:-80px;right:-80px; width:300px;height:300px; border-radius:50%; background:rgba(255,255,255,.07); }
+.cta-section::after { content:''; position:absolute; bottom:-60px;left:-60px; width:240px;height:240px; border-radius:50%; background:rgba(0,0,0,.06); }
+.cta-inner { position: relative; z-index: 1; }
+.cta-title { font-family: 'Playfair Display', serif; font-size: clamp(28px,4vw,42px); font-weight: 800; color: #fff; margin-bottom: 14px; }
+.cta-desc { font-size: 15px; color: rgba(255,255,255,.8); max-width: 520px; margin: 0 auto 32px; line-height: 1.7; }
+.cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.btn-white { background: #fff; color: var(--primary); font-weight: 700; }
+.btn-white:hover { background: var(--neutral-100); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.15); }
+.btn-dark { background: rgba(0,0,0,.2); color: #fff; border: 2px solid rgba(255,255,255,.4); }
+.btn-dark:hover { background: rgba(0,0,0,.35); border-color: rgba(255,255,255,.7); }
+
+/* ── FOOTER ── */
+footer{background:var(--secondary);color:rgba(255,255,255,.8)}
+.footer-main{max-width:1200px;margin:0 auto;padding:60px 24px 40px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px}
+.footer-brand-icon{width:52px;height:52px;background:rgba(255,255,255,.1);border-radius:12px;display:grid;place-items:center;font-family:'Playfair Display',serif;font-size:22px;font-weight:800;color:var(--primary-light);margin-bottom:16px}
+.footer-brand-name{font-size:16px;font-weight:700;color:#fff}
+.footer-brand-sub{font-size:12px;color:rgba(255,255,255,.5);margin-top:2px}
+.footer-about{font-size:13px;line-height:1.75;margin-top:16px;color:rgba(255,255,255,.6)}
+.footer-social{display:flex;gap:10px;margin-top:20px}
+.footer-social a{width:36px;height:36px;background:rgba(255,255,255,.1);border-radius:8px;display:grid;place-items:center;color:rgba(255,255,255,.7);text-decoration:none;font-size:14px;transition:all .2s}
+.footer-social a:hover{background:var(--primary);color:#fff}
+.footer-col-title{font-size:13px;font-weight:700;color:#fff;margin-bottom:16px;letter-spacing:.3px}
+.footer-links{display:flex;flex-direction:column;gap:10px}
+.footer-links a{font-size:12.5px;color:rgba(255,255,255,.6);text-decoration:none;transition:color .2s;display:flex;align-items:center;gap:6px}
+.footer-links a::before{content:'›';color:var(--primary);font-size:14px}
+.footer-links a:hover{color:var(--primary-light)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.1);max-width:1200px;margin:0 auto;padding:20px 24px;display:flex;justify-content:space-between;align-items:center;font-size:12px;color:rgba(255,255,255,.4);flex-wrap:wrap;gap:12px}
+.footer-bottom a{color:var(--primary-light);text-decoration:none}
+.back-top{position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:var(--primary);color:#fff;border-radius:12px;display:grid;place-items:center;cursor:pointer;box-shadow:0 4px 16px rgba(235,118,19,.4);transition:all .2s;font-size:16px;border:none;opacity:0;pointer-events:none;z-index:999}
+.back-top.show{opacity:1;pointer-events:all}
+.back-top:hover{transform:translateY(-3px);background:var(--secondary)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+    .hero-inner{grid-template-columns:1fr;gap:0}
+    .hero-right{display:none}
+    .nilai-grid{grid-template-columns:repeat(2,1fr)}
+    .pimpinan-grid{grid-template-columns:1fr 1fr}
+    .footer-main{grid-template-columns:1fr 1fr}
+    .sejarah-grid{grid-template-columns:1fr}
+    .tl-center{display:none}
+    .tl-right{padding-top:0}
+    .tl-event-right{text-align:left}
+}
+@media(max-width:768px){
+    nav{display:none}
+    .hamburger{display:flex}
+    .about-grid{grid-template-columns:1fr}
+    .about-images{height:300px}
+    .vm-grid{grid-template-columns:1fr}
+    .nilai-grid{grid-template-columns:1fr}
+    .tf-grid{grid-template-columns:1fr}
+    .pimpinan-grid{grid-template-columns:1fr}
+    .footer-main{grid-template-columns:1fr;gap:32px}
+    .stat-strip-inner{grid-template-columns:repeat(2,1fr)}
+    .ss-item:nth-child(2){border-right:none}
+    .ss-item:nth-child(3){border-top:1px solid var(--neutral-200)}
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-links">
+      <a href="#">Portal UMI</a><a href="#">SPMI Online</a><a href="#">E-Journal</a>
+    </div>
+    <div class="topbar-social">
+      <a href="#" title="YouTube">▶</a>
+      <a href="#" title="Facebook">f</a>
+      <a href="#" title="Instagram">◉</a>
+      <a href="#" title="WhatsApp">✆</a>
+    </div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="navbar-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-icon">LPM</div>
+      <div class="brand-text">
+        <div class="brand-name">LPM — UMI</div>
+        <div class="brand-sub">Lembaga Penjaminan Mutu</div>
+      </div>
+    </a>
+    <nav>
+      <a href="index.html">Beranda</a>
+      <div class="nav-dropdown">
+        <span>Profil</span>
+        <div class="dropdown-menu">
+          <a href="tentang.html">Tentang LPM</a>
+          <a href="struktur.html">Struktur Organisasi</a>
+          <a href="tentang.html#visi">Visi & Misi</a>
+          <a href="tentang.html#sejarah">Sejarah</a>
+        </div>
+      </div>
+      <a href="spmi.html">SPMI</a>
+      <a href="akreditasi.html">Akreditasi</a>
+      <a href="berita.html">Berita</a>
+      <a href="kontak.html">Kontak</a>
+    </nav>
+    <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div id="mobileNav" class="mobile-nav">
+  <a href="index.html">Beranda</a>
+  <div class="mobile-group">
+    <div class="mobile-group-title">Profil</div>
+    <a href="tentang.html">Tentang LPM</a>
+    <a href="struktur.html">Struktur Organisasi</a>
+    <a href="tentang.html#visi">Visi & Misi</a>
+  </div>
+  <a href="spmi.html">SPMI</a>
+  <a href="akreditasi.html">Akreditasi</a>
+  <a href="berita.html">Berita</a>
+  <a href="kontak.html">Kontak</a>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- HERO                                   -->
+<!-- ═══════════════════════════════════════ -->
+<div class="hero-tentang">
+  <div class="hero-inner">
+    <div class="hero-left reveal">
+      <div class="breadcrumb">
+        <a href="index.html">Beranda</a><span>/</span>
+        <a href="#">Profil</a><span>/</span>
+        <span>Tentang Kami</span>
+      </div>
+      <div class="hero-tag">Lembaga Penjaminan Mutu</div>
+      <h1 class="hero-h1">Tentang <em>LPM</em><br>Universitas Muslim<br>Indonesia</h1>
+      <p class="hero-p">Lembaga Penjaminan Mutu UMI hadir untuk memastikan kualitas pendidikan tinggi yang berkelanjutan, berstandar nasional dan internasional, berlandaskan nilai-nilai keislaman.</p>
+      <div class="hero-actions">
+        <a href="#tentang" class="btn btn-primary">Pelajari Lebih →</a>
+        <a href="kontak.html" class="btn-outline-white">Hubungi Kami</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-img-main">🏛</div>
+      <div class="hero-img-accent">🎓</div>
+      <div class="hero-badge-float">
+        <div class="hbf-num">25+</div>
+        <div class="hbf-lbl">Tahun Berkomitmen</div>
+      </div>
+    </div>
+  </div>
+  <!-- Wave pemisah -->
+  <svg class="hero-wave" viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <path d="M0,60 C360,0 1080,60 1440,20 L1440,60 Z" fill="#ffffff"/>
+  </svg>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- STAT STRIP                             -->
+<!-- ═══════════════════════════════════════ -->
+<div class="stat-strip">
+  <div class="stat-strip-inner">
+    <div class="ss-item reveal">
+      <div class="ss-num"><span class="count" data-target="66">0</span></div>
+      <div class="ss-lbl">Program Studi</div>
+      <div class="ss-sub">Aktif di UMI</div>
+    </div>
+    <div class="ss-item reveal">
+      <div class="ss-num"><span class="count" data-target="29">0</span><span style="color:var(--primary);font-size:28px;">%</span></div>
+      <div class="ss-lbl">Akreditasi Unggul</div>
+      <div class="ss-sub">Peringkat tertinggi</div>
+    </div>
+    <div class="ss-item reveal">
+      <div class="ss-num"><span class="count" data-target="32">0</span></div>
+      <div class="ss-lbl">Auditor Internal</div>
+      <div class="ss-sub">Bersertifikat BNSP</div>
+    </div>
+    <div class="ss-item reveal">
+      <div class="ss-num"><span class="count" data-target="100">0</span><span style="color:var(--primary);font-size:28px;">%</span></div>
+      <div class="ss-lbl">Terakreditasi</div>
+      <div class="ss-sub">Semua program studi</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- TENTANG LPM                            -->
+<!-- ═══════════════════════════════════════ -->
+<section id="tentang" style="background:#fff;">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-images reveal">
+        <div class="img-main">🏛</div>
+        <div class="img-accent">🎓</div>
+        <div class="img-badge">
+          <div class="img-badge-num">A</div>
+          <div class="img-badge-label">Akreditasi Institusi</div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="section-label">Tentang Kami</div>
+        <h2 class="section-title">Lembaga Penjaminan <em>Mutu UMI</em></h2>
+        <p style="font-size:15px;line-height:1.8;color:var(--neutral-600);margin-bottom:14px;">
+          Lembaga Penjaminan Mutu (LPM) Universitas Muslim Indonesia merupakan unsur pelaksana akademik yang bertanggung jawab langsung kepada Rektor dalam bidang penjaminan mutu pendidikan tinggi secara menyeluruh.
+        </p>
+        <p style="font-size:15px;line-height:1.8;color:var(--neutral-600);margin-bottom:14px;">
+          LPM bertugas merencanakan, melaksanakan, mengendalikan, dan mengembangkan Sistem Penjaminan Mutu Internal (SPMI) di seluruh unit kerja dan program studi — mulai dari penyusunan standar, pelaksanaan audit, hingga pendampingan akreditasi.
+        </p>
+        <p style="font-size:15px;line-height:1.8;color:var(--neutral-600);margin-bottom:28px;">
+          Dengan komitmen penuh terhadap peningkatan kualitas yang berkelanjutan, LPM-UMI terus menyelaraskan standar mutu dengan kebutuhan nasional dan internasional, berlandaskan nilai-nilai Islam yang rahmatan lil alamin.
+        </p>
+        <div class="pillars">
+          <div class="pillar">
+            <div class="pillar-icon">🔗</div>
+            <div>
+              <div class="pillar-title">Koordinasi SPMI Terpadu</div>
+              <div class="pillar-desc">Mengkoordinir pelaksanaan SPMI di seluruh unit UMI melalui siklus PPEPP yang konsisten dan terukur.</div>
+            </div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">🔍</div>
+            <div>
+              <div class="pillar-title">Audit Mutu Internal Berkala</div>
+              <div class="pillar-desc">Melaksanakan AMI dua kali per tahun dengan metode berbasis risiko untuk evaluasi dan perbaikan berkelanjutan.</div>
+            </div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">🏅</div>
+            <div>
+              <div class="pillar-title">Pendampingan Akreditasi</div>
+              <div class="pillar-desc">Mendampingi program studi menuju status Unggul melalui bimbingan teknis dan persiapan dokumen akreditasi.</div>
+            </div>
+          </div>
+        </div>
+        <div style="display:flex;gap:12px;margin-top:28px;">
+          <a href="struktur.html" class="btn btn-green">Struktur Organisasi</a>
+          <a href="kontak.html" class="btn btn-ghost">Konsultasi Mutu</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- VISI & MISI                            -->
+<!-- ═══════════════════════════════════════ -->
+<section id="visi" class="vm-section">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:48px;position:relative;z-index:1;">
+      <div class="section-label" style="display:inline-flex;background:rgba(235,118,19,.2);color:var(--primary-light);">Landasan</div>
+      <h2 class="section-title" style="color:#fff;">Visi & <em style="color:var(--primary-light);">Misi</em></h2>
+      <p style="font-size:15px;color:rgba(255,255,255,.7);max-width:520px;margin:0 auto;">Arah dan tujuan yang menjadi landasan setiap langkah LPM dalam menjaga dan meningkatkan mutu UMI.</p>
+    </div>
+    <div class="vm-grid">
+      <div class="vm-box vm-visi reveal">
+        <div class="vm-icon">🌟</div>
+        <div class="vm-label">Visi LPM UMI</div>
+        <div class="vm-title">"Menjadi lembaga penjaminan mutu yang unggul, terpercaya, dan berkarakter islami dalam mendorong UMI sebagai universitas berkelas dunia."</div>
+        <div class="vm-desc">Kami berkomitmen untuk mewujudkan visi ini melalui sistem penjaminan mutu yang komprehensif, inovatif, dan berakar pada nilai-nilai Islam.</div>
+        <div class="vm-divider"></div>
+      </div>
+      <div class="vm-box vm-misi reveal">
+        <div class="vm-icon" style="font-size:28px;margin-bottom:16px;">🎯</div>
+        <div class="vm-label">Misi LPM UMI</div>
+        <div class="vm-misi-list">
+          <div class="vm-misi-item">
+            <div class="vm-num">1</div>
+            <div class="vm-text">Mengembangkan dan mengimplementasikan SPMI yang komprehensif dan berkelanjutan di seluruh unit UMI.</div>
+          </div>
+          <div class="vm-misi-item">
+            <div class="vm-num">2</div>
+            <div class="vm-text">Mendorong budaya mutu yang berakar pada nilai-nilai keislaman dan keindonesiaan di lingkungan akademik UMI.</div>
+          </div>
+          <div class="vm-misi-item">
+            <div class="vm-num">3</div>
+            <div class="vm-text">Memfasilitasi proses akreditasi program studi dan institusi menuju standar nasional dan internasional yang diakui.</div>
+          </div>
+          <div class="vm-misi-item">
+            <div class="vm-num">4</div>
+            <div class="vm-text">Meningkatkan kompetensi SDM dalam bidang penjaminan mutu melalui pelatihan dan pengembangan berkelanjutan.</div>
+          </div>
+          <div class="vm-misi-item">
+            <div class="vm-num">5</div>
+            <div class="vm-text">Membangun sistem informasi mutu yang terintegrasi untuk mendukung pengambilan keputusan berbasis data.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- NILAI-NILAI                            -->
+<!-- ═══════════════════════════════════════ -->
+<section style="background:var(--neutral-50);">
+  <div class="container">
+    <div style="text-align:center;">
+      <div class="section-label" style="display:inline-flex;">Budaya Kerja</div>
+      <h2 class="section-title">Nilai-Nilai <em>Kami</em></h2>
+      <p style="font-size:15px;color:var(--neutral-500);max-width:540px;margin:0 auto;">Enam nilai utama yang menjiwai setiap kegiatan dan keputusan Lembaga Penjaminan Mutu UMI.</p>
+    </div>
+    <div class="nilai-grid">
+      <div class="nilai-card reveal">
+        <div class="nilai-icon-wrap">🕌</div>
+        <div class="nilai-title">Islami</div>
+        <div class="nilai-desc">Seluruh kegiatan berlandaskan nilai-nilai Islam yang rahmatan lil alamin — menjunjung kejujuran, amanah, dan integritas dalam setiap aspek penjaminan mutu.</div>
+      </div>
+      <div class="nilai-card reveal">
+        <div class="nilai-icon-wrap">🎯</div>
+        <div class="nilai-title">Profesional</div>
+        <div class="nilai-desc">Bekerja dengan standar tinggi, kompeten, dan bertanggung jawab penuh dalam setiap aspek penjaminan mutu pendidikan tinggi di UMI.</div>
+      </div>
+      <div class="nilai-card reveal">
+        <div class="nilai-icon-wrap">🔄</div>
+        <div class="nilai-title">Berkelanjutan</div>
+        <div class="nilai-desc">Komitmen terhadap perbaikan dan peningkatan kualitas yang terus-menerus melalui siklus PPEPP yang konsisten dan terukur.</div>
+      </div>
+      <div class="nilai-card reveal">
+        <div class="nilai-icon-wrap">🤝</div>
+        <div class="nilai-title">Kolaboratif</div>
+        <div class="nilai-desc">Membangun kemitraan sinergis dengan seluruh unit kerja, program studi, dan pemangku kepentingan eksternal untuk mutu bersama.</div>
+      </div>
+      <div class="nilai-card reveal">
+        <div class="nilai-icon-wrap">📊</div>
+        <div class="nilai-title">Berbasis Data</div>
+        <div class="nilai-desc">Setiap keputusan dan kebijakan mutu dilandasi data dan bukti yang valid, akurat, dan dapat dipertanggungjawabkan secara ilmiah.</div>
+      </div>
+      <div class="nilai-card reveal">
+        <div class="nilai-icon-wrap">🌐</div>
+        <div class="nilai-title">Berorientasi Global</div>
+        <div class="nilai-desc">Menyelaraskan standar mutu dengan perkembangan pendidikan tinggi nasional dan internasional yang relevan dengan kebutuhan zaman.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- TUGAS & FUNGSI                         -->
+<!-- ═══════════════════════════════════════ -->
+<section style="background:#fff;">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;">
+      <div>
+        <div class="section-label">Legalitas & Peran</div>
+        <h2 class="section-title">Tugas & <em>Fungsi</em></h2>
+        <p class="section-desc" style="margin-bottom:32px;">LPM-UMI menjalankan tugas dan fungsi strategis dalam pengelolaan mutu akademik dan kelembagaan secara menyeluruh berdasarkan Statuta UMI dan regulasi Kemdikbud Ristek.</p>
+        <div style="background:linear-gradient(135deg,var(--secondary),var(--secondary-light));border-radius:16px;padding:28px;color:#fff;">
+          <div style="font-size:11.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:16px;">Dasar Hukum</div>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:rgba(255,255,255,.8);">
+              <span style="color:var(--primary-light);font-size:16px;flex-shrink:0;">›</span>
+              Permendikbud Ristek No. 53 Tahun 2023 tentang Penjaminan Mutu Pendidikan Tinggi
+            </div>
+            <div style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:rgba(255,255,255,.8);">
+              <span style="color:var(--primary-light);font-size:16px;flex-shrink:0;">›</span>
+              Statuta Universitas Muslim Indonesia Tahun 2022
+            </div>
+            <div style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:rgba(255,255,255,.8);">
+              <span style="color:var(--primary-light);font-size:16px;flex-shrink:0;">›</span>
+              Kebijakan SPMI UMI Tahun 2023 (Revisi ke-4)
+            </div>
+            <div style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:rgba(255,255,255,.8);">
+              <span style="color:var(--primary-light);font-size:16px;flex-shrink:0;">›</span>
+              SK Rektor UMI No. 045/A.1/SK-R/UMI/I/2024
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tf-grid reveal">
+        <div class="tf-card">
+          <div class="tf-icon">📐</div>
+          <div>
+            <div class="tf-title">Penyusunan Standar Mutu</div>
+            <div class="tf-desc">Merumuskan dan menetapkan standar mutu akademik dan non-akademik yang terukur sesuai regulasi nasional.</div>
+          </div>
+        </div>
+        <div class="tf-card">
+          <div class="tf-icon">🔍</div>
+          <div>
+            <div class="tf-title">Audit Mutu Internal</div>
+            <div class="tf-desc">Merancang dan melaksanakan AMI secara berkala untuk mengevaluasi pemenuhan standar mutu di seluruh unit.</div>
+          </div>
+        </div>
+        <div class="tf-card">
+          <div class="tf-icon">📋</div>
+          <div>
+            <div class="tf-title">Monitoring & Evaluasi</div>
+            <div class="tf-desc">Memantau pelaksanaan program dan ketercapaian IKU/IKT serta memberikan rekomendasi perbaikan.</div>
+          </div>
+        </div>
+        <div class="tf-card">
+          <div class="tf-icon">🏅</div>
+          <div>
+            <div class="tf-title">Pendampingan Akreditasi</div>
+            <div class="tf-desc">Memberikan bimbingan teknis kepada program studi dalam persiapan akreditasi BAN-PT maupun LAM.</div>
+          </div>
+        </div>
+        <div class="tf-card">
+          <div class="tf-icon">📚</div>
+          <div>
+            <div class="tf-title">Pengelolaan Dokumen</div>
+            <div class="tf-desc">Mengelola seluruh dokumen mutu termasuk kebijakan, standar, manual, dan prosedur SPMI secara sistematis.</div>
+          </div>
+        </div>
+        <div class="tf-card">
+          <div class="tf-icon">🎓</div>
+          <div>
+            <div class="tf-title">Pelatihan & Workshop</div>
+            <div class="tf-desc">Menyelenggarakan pelatihan auditor internal dan program pengembangan kapasitas SDM di bidang penjaminan mutu.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- PIMPINAN                               -->
+<!-- ═══════════════════════════════════════ -->
+<section style="background:var(--neutral-50);">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:0;">
+      <div class="section-label" style="display:inline-flex;">Kepengurusan</div>
+      <h2 class="section-title">Pimpinan <em>LPM UMI</em></h2>
+      <p style="font-size:15px;color:var(--neutral-500);max-width:480px;margin:0 auto;">Periode 2024–2028</p>
+    </div>
+    <div class="pimpinan-grid">
+      <div class="pimpinan-card reveal">
+        <div class="pimpinan-photo">
+          A
+          <div class="pimpinan-badge">Ketua LPM</div>
+        </div>
+        <div class="pimpinan-body">
+          <div class="pimpinan-name">Prof. Dr. H. Ahmad Muliadi, M.Si.</div>
+          <div class="pimpinan-role">Ketua Lembaga Penjaminan Mutu</div>
+          <div class="pimpinan-nidn">NIDN: 0912057201</div>
+          <div class="pimpinan-social">
+            <a href="#" class="ps-link">📧</a>
+            <a href="#" class="ps-link">🔗</a>
+            <a href="#" class="ps-link">📞</a>
+          </div>
+        </div>
+      </div>
+      <div class="pimpinan-card reveal">
+        <div class="pimpinan-photo" style="background:linear-gradient(135deg,#0a2e4a,#013d21);">
+          S
+          <div class="pimpinan-badge">Sekretaris</div>
+        </div>
+        <div class="pimpinan-body">
+          <div class="pimpinan-name">Dr. Hj. Sitti Rahmawati, M.Pd.</div>
+          <div class="pimpinan-role">Sekretaris LPM</div>
+          <div class="pimpinan-nidn">NIDN: 0924087401</div>
+          <div class="pimpinan-social">
+            <a href="#" class="ps-link">📧</a>
+            <a href="#" class="ps-link">🔗</a>
+            <a href="#" class="ps-link">📞</a>
+          </div>
+        </div>
+      </div>
+      <div class="pimpinan-card reveal">
+        <div class="pimpinan-photo" style="background:linear-gradient(135deg,#1a3a00,#013d21);">
+          D
+          <div class="pimpinan-badge" style="background:var(--secondary);">Ka. Div. SPMI</div>
+        </div>
+        <div class="pimpinan-body">
+          <div class="pimpinan-name">Dr. Ir. Muh. Darwis, M.T.</div>
+          <div class="pimpinan-role">Kepala Divisi SPMI</div>
+          <div class="pimpinan-nidn">NIDN: 0915067001</div>
+          <div class="pimpinan-social">
+            <a href="#" class="ps-link">📧</a>
+            <a href="#" class="ps-link">🔗</a>
+            <a href="#" class="ps-link">📞</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:32px;">
+      <a href="struktur.html" class="btn btn-ghost">Lihat Struktur Lengkap →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- SEJARAH SINGKAT                        -->
+<!-- ═══════════════════════════════════════ -->
+<section id="sejarah" style="background:#fff;">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:56px;">
+      <div class="section-label" style="display:inline-flex;">Perjalanan Kami</div>
+      <h2 class="section-title">Sejarah <em>Singkat</em></h2>
+      <p style="font-size:15px;color:var(--neutral-500);max-width:520px;margin:0 auto;line-height:1.7;">Perjalanan panjang LPM dalam menjaga dan meningkatkan mutu pendidikan di Universitas Muslim Indonesia sejak berdirinya UMI.</p>
+    </div>
+
+    <div class="sejarah-grid">
+      <!-- Kiri: event genap -->
+      <div class="tl-left">
+        <div style="height:52px;"></div>
+        <div class="tl-event-right reveal">
+          <div class="tl-event-card">
+            <div class="tl-year-badge">1954</div>
+            <div class="tl-event-title">Berdirinya UMI</div>
+            <div class="tl-event-desc">Universitas Muslim Indonesia didirikan sebagai institusi pendidikan tinggi berbasis Islam di Makassar, menjadi cikal bakal kebutuhan penjaminan mutu.</div>
+          </div>
+        </div>
+        <div style="height:52px;"></div>
+        <div class="tl-event-right reveal">
+          <div class="tl-event-card">
+            <div class="tl-year-badge">2006</div>
+            <div class="tl-event-title">Transformasi Menjadi LPM</div>
+            <div class="tl-event-desc">Unit penjaminan mutu berkembang resmi menjadi Lembaga Penjaminan Mutu (LPM) dengan struktur dan fungsi yang lebih komprehensif dan mandiri.</div>
+          </div>
+        </div>
+        <div style="height:52px;"></div>
+        <div class="tl-event-right reveal">
+          <div class="tl-event-card">
+            <div class="tl-year-badge">2018</div>
+            <div class="tl-event-title">Akreditasi Institusi Peringkat "A"</div>
+            <div class="tl-event-desc">UMI berhasil meraih akreditasi institusi dengan peringkat "A" dari BAN-PT, mencerminkan kualitas tata kelola dan mutu akademik yang sangat baik.</div>
+          </div>
+        </div>
+        <div style="height:52px;"></div>
+      </div>
+
+      <!-- Tengah: garis vertikal -->
+      <div class="tl-center">
+        <div class="tl-start-dot"></div>
+        <div class="tl-line"></div>
+        <div class="tl-dot-center primary"></div>
+        <div class="tl-line"></div>
+        <div class="tl-dot-center"></div>
+        <div class="tl-line"></div>
+        <div class="tl-dot-center primary"></div>
+        <div class="tl-line"></div>
+        <div class="tl-dot-center"></div>
+        <div class="tl-line"></div>
+        <div class="tl-dot-center primary"></div>
+        <div class="tl-line"></div>
+        <div class="tl-end-dot"></div>
+      </div>
+
+      <!-- Kanan: event ganjil -->
+      <div class="tl-right">
+        <div class="tl-event reveal">
+          <div class="tl-event-card">
+            <div class="tl-year-badge" style="background:var(--secondary);">1999</div>
+            <div class="tl-event-title">Pembentukan Unit Penjaminan Mutu</div>
+            <div class="tl-event-desc">UMI membentuk unit penjaminan mutu pertama sebagai respons terhadap kebutuhan peningkatan kualitas akademik secara sistemik dan terstruktur.</div>
+          </div>
+        </div>
+        <div style="height:52px;"></div>
+        <div class="tl-event reveal">
+          <div class="tl-event-card">
+            <div class="tl-year-badge" style="background:var(--secondary);">2012</div>
+            <div class="tl-event-title">Implementasi SPMI Menyeluruh</div>
+            <div class="tl-event-desc">LPM mengimplementasikan SPMI secara penuh di semua fakultas dan program studi dengan dokumen standar yang lengkap dan terstandarisasi nasional.</div>
+          </div>
+        </div>
+        <div style="height:52px;"></div>
+        <div class="tl-event reveal">
+          <div class="tl-event-card">
+            <div class="tl-year-badge" style="background:var(--secondary);">2023</div>
+            <div class="tl-event-title">Era Akreditasi Unggul</div>
+            <div class="tl-event-desc">UMI meraih status Akreditasi Unggul (tertinggi) dari BAN-PT, membuktikan komitmen berkelanjutan terhadap mutu pendidikan tinggi bertaraf internasional.</div>
+          </div>
+        </div>
+        <div style="height:52px;"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- MITRA AKREDITASI                       -->
+<!-- ═══════════════════════════════════════ -->
+<div class="mitra-strip">
+  <div class="container">
+    <div class="mitra-title">Mitra & Lembaga Akreditasi</div>
+    <div class="mitra-logos">
+      <div class="mitra-badge">BAN-PT</div>
+      <div class="mitra-badge">LAMEMBA</div>
+      <div class="mitra-badge">LAMTeknik</div>
+      <div class="mitra-badge">LAM-PTKes</div>
+      <div class="mitra-badge">LAMInfokom</div>
+      <div class="mitra-badge">LAMDIK</div>
+      <div class="mitra-badge">LAMSPAK</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- CTA                                    -->
+<!-- ═══════════════════════════════════════ -->
+<div class="cta-section">
+  <div class="container">
+    <div class="cta-inner reveal">
+      <h2 class="cta-title">Siap Meningkatkan Mutu Program Studi Anda?</h2>
+      <p class="cta-desc">Tim LPM UMI siap mendampingi, berkonsultasi, dan memberikan solusi terbaik untuk peningkatan mutu akademik dan akreditasi program studi Anda.</p>
+      <div class="cta-btns">
+        <a href="kontak.html" class="btn btn-white">Mulai Konsultasi →</a>
+        <a href="spmi.html" class="btn btn-dark">Pelajari SPMI</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════ -->
+<!-- FOOTER                                 -->
+<!-- ═══════════════════════════════════════ -->
+<footer>
+  <div class="footer-main">
+    <div>
+      <div class="footer-brand-icon">LPM</div>
+      <div class="footer-brand-name">LPM — Universitas Muslim Indonesia</div>
+      <div class="footer-brand-sub">Lembaga Penjaminan Mutu</div>
+      <p class="footer-about">Berkomitmen untuk terus meningkatkan kualitas pendidikan tinggi di UMI melalui sistem penjaminan mutu yang terstandar dan berkelanjutan.</p>
+      <div class="footer-social">
+        <a href="#">▶</a><a href="#">f</a><a href="#">◉</a><a href="#">✆</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Profil</div>
+      <div class="footer-links">
+        <a href="tentang.html">Tentang LPM</a>
+        <a href="tentang.html#visi">Visi & Misi</a>
+        <a href="tentang.html#sejarah">Sejarah</a>
+        <a href="struktur.html">Struktur Organisasi</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Layanan</div>
+      <div class="footer-links">
+        <a href="spmi.html">SPMI</a>
+        <a href="akreditasi.html">Akreditasi</a>
+        <a href="berita.html">Berita</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Kontak</div>
+      <div class="footer-links">
+        <a href="kontak.html">Hubungi Kami</a>
+        <a href="#">Portal UMI</a>
+        <a href="#">SPMI Online</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 LPM Universitas Muslim Indonesia. Hak cipta dilindungi.</span>
+    <span>Dibuat oleh <a href="#">Tim LPM-UMI</a></span>
+  </div>
+</footer>
+<button class="back-top" id="backTop">↑</button>
+
+<script>
+// ── DROPDOWN ──
+(function(){
+  const dds = document.querySelectorAll('.nav-dropdown');
+  dds.forEach(function(dd){
+    let t = null;
+    function open(){ clearTimeout(t); dds.forEach(function(d){ if(d!==dd) d.classList.remove('open') }); dd.classList.add('open'); }
+    function close(){ t = setTimeout(function(){ dd.classList.remove('open'); }, 150); }
+    function cancel(){ clearTimeout(t); }
+    dd.addEventListener('mouseenter', open);
+    dd.addEventListener('mouseleave', close);
+    const m = dd.querySelector('.dropdown-menu');
+    if(m){ m.addEventListener('mouseenter', cancel); m.addEventListener('mouseleave', close); }
+  });
+  document.addEventListener('click', function(e){
+    if(!e.target.closest('.nav-dropdown')) dds.forEach(function(d){ d.classList.remove('open'); });
+  });
+})();
+
+// ── HAMBURGER ──
+const hb = document.getElementById('hamburger');
+const mn = document.getElementById('mobileNav');
+if(hb && mn){
+  hb.addEventListener('click', function(){ const o = mn.classList.toggle('open'); hb.classList.toggle('active', o); });
+  mn.querySelectorAll('a').forEach(function(l){ l.addEventListener('click', function(){ mn.classList.remove('open'); hb.classList.remove('active'); }); });
+  document.addEventListener('click', function(e){
+    if(!e.target.closest('.navbar-inner') && !e.target.closest('.mobile-nav')){ mn.classList.remove('open'); hb.classList.remove('active'); }
+  });
+}
+
+// ── BACK TO TOP ──
+const bt = document.getElementById('backTop');
+if(bt){
+  window.addEventListener('scroll', function(){ bt.classList.toggle('show', scrollY > 400); });
+  bt.addEventListener('click', function(){ window.scrollTo({ top: 0, behavior: 'smooth' }); });
+}
+
+// ── REVEAL ON SCROLL ──
+document.querySelectorAll('.reveal').forEach(function(el){
+  new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 }).observe(el);
+});
+
+// ── COUNT UP ──
+const countObs = new IntersectionObserver(function(entries){
+  entries.forEach(function(entry){
+    if(!entry.isIntersecting) return;
+    const el = entry.target;
+    const target = +el.dataset.target;
+    let current = 0;
+    const step = target / 60;
+    const timer = setInterval(function(){
+      current = Math.min(current + step, target);
+      el.textContent = Math.floor(current);
+      if(current >= target) clearInterval(timer);
+    }, 16);
+    countObs.unobserve(el);
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('.count').forEach(function(el){ countObs.observe(el); });
+</script>
+</body>
+</html>
