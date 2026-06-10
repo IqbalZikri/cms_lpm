@@ -241,13 +241,6 @@ nav a.active {
     font-size: 13.5px !important;
 }
 
-/* Tampilkan hanya di mobile */
-@media (max-width: 768px) {
-    .mobile-nav {
-        display: flex;
-    }
-}
-
 /* Animasi hamburger jadi X saat aktif */
 .hamburger.active span:nth-child(1) {
     transform: translateY(7.5px) rotate(45deg);
@@ -261,32 +254,12 @@ nav a.active {
 }
 
 /* ── COMMON ── */
+/* ── COMMON ── */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 24px;
 }
-
-.img-stuktur-organisasi {
-    display: block;
-    max-width: 100%;
-    height: auto;
-
-    margin: 0 auto;
-    background: #fff;
-    border-radius: 18px;
-    padding: 28px;
-    border: 1.5px solid var(--neutral-200);
-    transition: all 0.3s;
-    box-sizing: border-box;
-}
-
-.img-stuktur-organisasi {
-    border-color: var(--secondary);
-    transform: translateY(-3px);
-    box-shadow: 0 10px 32px rgba(1, 61, 33, 0.08);
-}
-
 section {
     padding: 80px 0;
 }
@@ -296,7 +269,7 @@ section {
     gap: 8px;
     background: rgba(235, 118, 19, 0.1);
     color: var(--primary);
-    font-size: 15px;
+    font-size: 11.5px;
     font-weight: 700;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -313,7 +286,7 @@ section {
 }
 .section-title {
     font-family: "Playfair Display", serif;
-    font-size: clamp(30px, 3.5vw, 38px);
+    font-size: clamp(26px, 3.5vw, 38px);
     font-weight: 700;
     line-height: 1.2;
     color: var(--neutral-900);
@@ -335,7 +308,7 @@ section {
     gap: 8px;
     padding: 12px 24px;
     border-radius: var(--radius);
-    font-size: 15px;
+    font-size: 13.5px;
     font-weight: 700;
     text-decoration: none;
     cursor: pointer;
@@ -423,7 +396,7 @@ section {
 .hero-inner {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 0 50px 0;
+    padding: 0 24px 50px 24px;
     position: relative;
     z-index: 1;
     display: flex;
@@ -902,18 +875,6 @@ section {
 
 .misi-content a:hover {
     text-decoration: underline;
-}
-
-@media (max-width: 768px) {
-    .misi-content ol li {
-        padding: 1rem 1rem 1rem 4rem;
-    }
-
-    .misi-content ol li::before {
-        width: 36px;
-        height: 36px;
-        font-size: 14px;
-    }
 }
 
 /* ── PIMPINAN ── */
@@ -1710,41 +1671,14 @@ footer {
     background: var(--secondary);
 }
 
-/* RESPONSIVE */
-@media (max-width: 1200px) {
-    .misi-cards {
-        grid-template-columns: repeat(3, 1fr);
-    }
-    .nilai-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-@media (max-width: 1024px) {
-    .hero-content {
-        grid-template-columns: 1fr;
-    }
-    .hero-right {
-        display: none;
-    }
-    .visi-layout {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-    .tujuan-grid {
-        grid-template-columns: 1fr;
-    }
-    .misi-intro {
-        grid-template-columns: 1fr;
-    }
-    .footer-main {
-        grid-template-columns: 1fr 1fr;
-    }
-}
 @media (max-width: 768px) {
     nav {
         display: none;
     }
     .hamburger {
+        display: flex;
+    }
+    .mobile-nav {
         display: flex;
     }
     .misi-cards {
@@ -1760,17 +1694,14 @@ footer {
     .visi-circle-wrap {
         max-width: 280px;
     }
-    .cta-strip-inner {
-        flex-direction: column;
-        text-align: center;
+    .misi-content ol li {
+        padding: 1rem 1rem 1rem 4rem;
     }
-}
-@media (max-width: 480px) {
-    .misi-cards {
-        grid-template-columns: 1fr;
-    }
-    .nilai-grid {
-        grid-template-columns: 1fr 1fr;
+
+    .misi-content ol li::before {
+        width: 36px;
+        height: 36px;
+        font-size: 14px;
     }
 }
 
@@ -1911,6 +1842,7 @@ footer {
     padding: 48px 24px;
     text-align: center;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    
 }
 
 .empty-icon {
@@ -1943,8 +1875,34 @@ footer {
 
 /* ─── RESPONSIVE ─── */
 @media (max-width: 1024px) {
+    .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+    .misi-cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .nilai-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
     .stats-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+    .hero-content {
+        grid-template-columns: 1fr;
+    }
+    .hero-right {
+        display: none;
+    }
+    .visi-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .tujuan-grid {
+        grid-template-columns: 1fr;
+    }
+    .misi-intro {
+        grid-template-columns: 1fr;
     }
     .footer-main {
         grid-template-columns: 1fr 1fr;
@@ -1956,6 +1914,93 @@ footer {
     }
     .hamburger {
         display: flex;
+    }
+    /* Hero */
+    .hero {
+        height: auto !important;
+        padding: 48px 0 0;
+        min-height: unset;
+    }
+
+    .hero-inner {
+        padding: 0 24px 40px 24px; /* tambah padding kiri-kanan */
+    }
+
+    .hero-left {
+        padding-bottom: 32px;
+    }
+
+    .hero-h1 {
+        font-size: 32px;
+        line-height: 1.2;
+        margin-bottom: 16px;
+    }
+
+    .hero-p {
+        font-size: 14px;
+        line-height: 1.7;
+        margin-bottom: 24px;
+    }
+
+    .hero-tag {
+        font-size: 11px;
+        padding: 5px 12px;
+    }
+
+    .hero-actions {
+        /* flex-direction: column; */
+        display: grid;
+        grid-template-columns: 2fr 2fr;
+        gap: 10px;
+    }
+
+    .hero-actions .btn,
+    .hero-actions .btn-outline-white {
+        width: 100%;
+        justify-content: center;
+        font-size: 13px;
+        padding: 12px 20px;
+    }
+
+    /* Breadcrumb */
+    .breadcrumb {
+        font-size: 12px;
+        flex-wrap: wrap;
+        gap: 4px;
+    }
+
+    /* Stat strip */
+    .stat-strip-inner {
+        grid-template-columns: 1fr 1fr; /* 2 kolom di mobile */
+        padding: 0 16px;
+    }
+
+    .ss-item {
+        padding: 20px 12px;
+        border-right: none;
+        border-bottom: 1px solid var(--neutral-200);
+    }
+
+    /* item genap: border kiri sebagai pemisah kolom */
+    .ss-item:nth-child(even) {
+        border-left: 1px solid var(--neutral-200);
+    }
+
+    /* item di baris terakhir: hapus border bawah */
+    .ss-item:nth-last-child(-n + 2) {
+        border-bottom: none;
+    }
+
+    .ss-num {
+        font-size: 28px;
+    }
+
+    .ss-lbl {
+        font-size: 13px;
+    }
+
+    .ss-sub {
+        font-size: 11px;
     }
     .hero-h1 {
         font-size: 34px;
@@ -2004,5 +2049,13 @@ footer {
     }
     .form-row {
         grid-template-columns: 1fr;
+    }
+}
+@media (max-width: 480px) {
+    .misi-cards {
+        grid-template-columns: 1fr;
+    }
+    .nilai-grid {
+        grid-template-columns: 1fr 1fr;
     }
 }

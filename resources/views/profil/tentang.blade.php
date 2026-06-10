@@ -1,9 +1,10 @@
 <x-layout.index>
+  {{-- <link rel="stylesheet" href="{{ asset('css/web/tentang.css') }}"> --}}
 <!-- ═══════════════════════════════════════ -->
 <!-- HERO                                   -->
 <!-- ═══════════════════════════════════════ -->
 <div class="hero">
-  <div class="hero-inner">
+  <div class="hero-inner reveal">
       <div class="breadcrumb">
         <a href="{{ route('beranda.index') }}">Beranda</a><span>/</span>
         <a href="#">Profil</a><span>/</span>

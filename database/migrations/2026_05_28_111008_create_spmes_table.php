@@ -13,6 +13,14 @@ return new class extends Migration
     {
         Schema::create('spme', function (Blueprint $table) {
             $table->id();
+            $table->string('singkatan_lembaga');
+            $table->string('nama_lembaga');
+            $table->text('deskripsi');
+            $table->string('link');
+            $table->text('kategori');
+            $table->text('cakupan_bidang');
+            $table->text('jenis');
+            $table->text('status');
             $table->timestamps();
         });
     }

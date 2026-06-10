@@ -64,6 +64,12 @@ class AdminPanelProvider extends PanelProvider
                     ->label('SPMI'),
 
                 NavigationGroup::make()
+                    ->label('SPME'),
+
+                NavigationGroup::make()
+                    ->label('Laporan'),
+
+                NavigationGroup::make()
                     ->label('Kegiatan'),
 
                 NavigationGroup::make()

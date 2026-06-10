@@ -1,5 +1,6 @@
 <x-layout.index>
   <link rel="stylesheet" href="{{ asset('css/web/sop.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/web/pengembangan.css') }}">
 <!-- ════════════════════════
      HERO
 ════════════════════════ -->
@@ -19,32 +20,43 @@
   </svg>
 </div>
 
+<div class="coming-soon">
+        <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                viewBox="0 0 24 24" stroke="currentColor"
+                stroke-width="1.8">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M12 6v6l4 2m5-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+        </div>
+
+        <div class="badge">
+            Dalam Pengembangan
+        </div>
+
+        <h1>Halaman Segera Hadir</h1>
+
+        <p>
+            Mohon maaf, halaman yang Anda tuju saat ini masih dalam proses
+            pengembangan. Tim kami sedang mempersiapkan konten dan fitur terbaik
+            agar dapat segera digunakan.
+        </p>
+
+        <a href="/" class="btn-home">
+            Kembali ke Beranda
+        </a>
+
+        <div class="dots">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+</div>
+
 
 <button class="back-top" id="backTop">↑</button>
 
 <script>
-/* DROPDOWN */
-(function(){
-  const dds = document.querySelectorAll('.nav-dropdown');
-  dds.forEach(function(dd){
-    let t = null;
-    function open(){ clearTimeout(t); dds.forEach(function(d){ if(d!==dd) d.classList.remove('open'); }); dd.classList.add('open'); }
-    function close(){ t = setTimeout(function(){ dd.classList.remove('open'); }, 150); }
-    function cancel(){ clearTimeout(t); }
-    dd.addEventListener('mouseenter', open); dd.addEventListener('mouseleave', close);
-    const m = dd.querySelector('.dropdown-menu');
-    if(m){ m.addEventListener('mouseenter', cancel); m.addEventListener('mouseleave', close); }
-  });
-  document.addEventListener('click', function(e){ if(!e.target.closest('.nav-dropdown')) dds.forEach(function(d){ d.classList.remove('open'); }); });
-})();
-
-/* HAMBURGER */
-const hb = document.getElementById('hamburger'), mn = document.getElementById('mobileNav');
-if(hb && mn){
-  hb.addEventListener('click', function(){ const o = mn.classList.toggle('open'); hb.classList.toggle('active', o); });
-  mn.querySelectorAll('a').forEach(function(l){ l.addEventListener('click', function(){ mn.classList.remove('open'); hb.classList.remove('active'); }); });
-  document.addEventListener('click', function(e){ if(!e.target.closest('.navbar-inner') && !e.target.closest('.mobile-nav')){ mn.classList.remove('open'); hb.classList.remove('active'); } });
-}
 
 /* BACK TO TOP */
 const bt = document.getElementById('backTop');

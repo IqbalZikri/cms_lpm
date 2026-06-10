@@ -462,14 +462,6 @@ const backTop = document.getElementById('backTop');
 window.addEventListener('scroll', () => backTop.classList.toggle('show', scrollY > 400));
 backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-const hamburger = document.getElementById('hamburger');
-const mobileNav = document.getElementById('mobileNav');
-
-hamburger.addEventListener('click', () => {
-  const isOpen = mobileNav.classList.toggle('open');
-  hamburger.classList.toggle('active', isOpen);
-});
-
 // Tutup saat klik link di mobile nav
 mobileNav.querySelectorAll('a').forEach(link => {
   link.addEventListener('click', () => {

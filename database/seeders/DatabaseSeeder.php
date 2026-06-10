@@ -41,7 +41,8 @@ class DatabaseSeeder extends Seeder
         Spmi::factory()->create();
 
         $this->call([
-            SiteSettingSeeder::class
+            SiteSettingSeeder::class,
+            LaporanSeeder::class
         ]);
     }
 }
