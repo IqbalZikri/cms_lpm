@@ -12,4 +12,8 @@ class Kategori extends Model
         'nm_kategori',
         'slug',
     ];
+
+    public function kegiatan(){
+        return $this->hasMany(Kegiatan::class);
+    }
 }

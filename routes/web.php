@@ -23,3 +23,4 @@ Route::get('/laporan', [LaporanController::class, 'index'])->name('laporan.index
 Route::get('/sop', [SopController::class, 'index'])->name('sop.index');
 
 Route::get('/kegiatan', [KegiatanController::class, 'index'])->name('kegiatan.index');
+Route::get('/kegiatan/{slug}', [KegiatanController::class, 'show'])->name('kegiatan.show');

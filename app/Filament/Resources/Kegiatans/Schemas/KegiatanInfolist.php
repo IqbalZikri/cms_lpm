@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Kegiatans\Schemas;
 
+use Filament\Infolists\Components\IconEntry;
 use Filament\Infolists\Components\ImageEntry;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Components\Grid;
@@ -33,18 +34,28 @@ class KegiatanInfolist
                             ->schema([
                                 TextEntry::make('content')
                                     ->label('Isi Berita')
+                                    ->html()
                                     ->columnSpanFull(),
                                 ImageEntry::make('gambar')
                                     ->height(400)
                                     ->label('Gambar Berita')
+                                    ->placeholder('-')
                             ]),
                         Tab::make('📅 Pengaturan Publikasi')
                             ->schema([
                                 Grid::make()
                                     ->schema([
-                                        TextEntry::make('status'),
-                                        TextEntry::make('published_at')
-                                            ->dateTime(),
+                                        TextEntry::make('status')
+                                            ->badge()
+                                            ->formatStateUsing(fn($state) => match ($state) {
+                                                'published' => 'Published',
+                                                'draft' => 'Draft',
+                                                default => ucfirst($state),
+                                            })
+                                            ->color(fn($state) => $state === 'published' ? 'success' : 'danger'),
+                                        TextEntry::make('published_at')->date(),
+                                        IconEntry::make('berita_utama')
+                                        ->boolean()
                                     ])
                             ]),
                         Tab::make('Waktu Pembuatan')
@@ -58,6 +69,9 @@ class KegiatanInfolist
                                         TextEntry::make('updated_at')
                                             ->dateTime()
                                             ->placeholder('-'),
+                                        TextEntry::make('user.name')
+                                        ->label('Nama pembuat')
+                                            ->placeholder('-')
                                     ])
                             ])
                     ]),

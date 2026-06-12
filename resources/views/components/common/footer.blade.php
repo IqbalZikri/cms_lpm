@@ -25,23 +25,6 @@
         <a href="{{ route('profil.strukturOrganisasi') }}">Struktur Organisasi</a>
       </div>
     </div>
-    {{-- <div>
-      <div class="footer-col-title footer-links">
-        <a href="{{ route('spmi.index') }}">SPMI</a>
-      </div>
-    </div>
-    <div>
-      <div class="footer-col-title"><a href="{{ route('spme.index') }}">SPME</a></div>
-    </div>
-    <div>
-      <div class="footer-col-title"><a href="">Laporan</a></div>
-    </div>
-    <div>
-      <div class="footer-col-title"><a href="">SOP</a></div>
-    </div>
-    <div>
-      <div class="footer-col-title"><a href="">Kegiatan</a></div>
-    </div> --}}
     <div>
       <div class="footer-col-title">SPMI & SPME</div>
       <div class="footer-links">
@@ -55,8 +38,8 @@
     <div>
       <div class="footer-col-title">Dokumen & Publikasi</div>
       <div class="footer-links">
-        <a href="#">Laporan</a>
-        <a href="#">SOP</a>
+        <a href="{{ route('laporan.index') }}">Laporan</a>
+        <a href="{{ route('sop.index') }}">SOP</a>
         <a href="{{ route('kegiatan.index') }}">Kegiatan</a>
       </div>
     </div>

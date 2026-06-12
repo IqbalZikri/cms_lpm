@@ -2,12 +2,15 @@
 
 namespace App\Filament\Resources\Kegiatans\Schemas;
 
+use App\Models\Kegiatan;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
+use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Tabs;
 use Filament\Schemas\Components\Tabs\Tab;
@@ -57,6 +60,10 @@ class KegiatanForm
                                     ]),
                                 TextInput::make('ringkasan')
                                     ->placeholder('Tulis ringkasan singkat kegiatan')
+                                    ->maxLength(255)
+                                    ->validationMessages([
+                                        'max' => 'Ringkasan maksimal 255 karakter',
+                                    ])
                                     ->required(),
                             ]),
                         Tab::make('✍️ Konten Berita')
@@ -97,7 +104,6 @@ class KegiatanForm
                                 Grid::make()
                                     ->schema([
                                         Select::make('status')
-                                        ->helperText('Status publish kegiatan')
                                             ->options([
                                                 'draft' => 'Draft',
                                                 'published' => 'Published',
@@ -120,13 +126,49 @@ class KegiatanForm
                                             ->helperText('Kolom ini akan otomatis terisi jika status yang terpilih adalah published')
                                             ->readOnly(),
                                     ]),
-                                TextInput::make('slug')
-                                    ->placeholder('contoh-judul-kegiatan')
-                                    ->helperText('Slug digunakan sebagai URL berita. Gunakan huruf kecil dan tanda hubung.')
-                                    ->required()
+                                Grid::make()
+                                    ->schema([
+                                        Select::make('berita_utama')
+                                            ->options([
+                                                1 => '✅',
+                                                0 => '✖️'
+                                            ])
+                                            ->default(function () {
+                                                return Kegiatan::count() === 0 ? 1 : 0;
+                                            })
+                                            ->required(),
+                                        TextInput::make('slug')
+                                            ->placeholder('contoh-judul-kegiatan')
+                                            ->helperText('Slug digunakan sebagai URL berita. Gunakan huruf kecil dan tanda hubung.')
+                                            ->required()
+                                    ]),
+                                Hidden::make('user_id')
+                                    ->default(auth()->id())
                             ])
-
                     ]),
             ]);
+    }
+
+    protected function mutateFormDataBeforeCreate(array $data): array
+    {
+        if ($data['berita_utama'] === 1) {
+            Kegiatan::query()->update([
+                'berita_utama' => 0,
+            ]);
+        }
+
+        return $data;
+    }
+
+    protected function mutateFormDataBeforeSave(array $data): array
+    {
+        if ($data['berita_utama'] === 1) {
+            Kegiatan::where('id', '!=', $this->record->id)
+                ->update([
+                    'berita_utama' => '0',
+                ]);
+        }
+
+        return $data;
     }
 }

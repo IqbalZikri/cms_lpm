@@ -13,6 +13,7 @@ return new class extends Migration {
         Schema::create('kegiatan', function (Blueprint $table) {
             $table->id();
             $table->foreignId('kategori_id')->constrained('kategori');
+            $table->foreignId('user_id')->constrained('users');
             $table->string('judul');
             $table->string('ringkasan');
             $table->text('content');
@@ -20,6 +21,7 @@ return new class extends Migration {
             $table->string('status');
             $table->string('slug');
             $table->text('views')->nullable();
+            $table->boolean('berita_utama')->nullable();
             $table->timestamp('published_at')->nullable();
             $table->timestamps();
         });

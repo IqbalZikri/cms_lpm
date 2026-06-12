@@ -22,7 +22,7 @@
       <a href="{{ route('spme.index') }}" class="{{ request()->routeIs('spme.index') ? 'active' : '' }}">SPME</a>
       <a href="{{ route('laporan.index') }}" class="{{ request()->routeIs('laporan.index') ? 'active' : '' }}">Laporan</a>
       <a href="{{ route('sop.index') }}" class="{{ request()->routeIs('sop.index') ? 'active' : '' }}">SOP</a>
-      <a href="{{ route('kegiatan.index') }}" class="{{ request()->routeIs('kegiatan.index') ? 'active' : '' }}">Kegiatan</a>
+      <a href="{{ route('kegiatan.index') }}" class="{{ request()->routeIs('kegiatan.*') ? 'active' : '' }}">Kegiatan</a>
     </nav>
     <button class="hamburger" id="hamburger" aria-label="Menu">
       <span></span><span></span><span></span>

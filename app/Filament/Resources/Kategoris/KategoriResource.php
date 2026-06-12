@@ -41,11 +41,14 @@ class KategoriResource extends Resource
                     ->placeholder('Masukkan Nama Kategori')
                     ->required()
                     ->live(onBlur: true)
+                    ->columnSpanFull()
                     ->afterStateUpdated(function ($operation, $state, callable $set) {
                         $set('slug', Str::slug($state));
                     }),
                 TextInput::make('slug')
                     ->placeholder('Link URL')
+                    ->columnSpanFull()
+                    ->helperText('Slug digunakan untuk link url')
                     ->required(),
             ]);
     }
